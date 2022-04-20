@@ -20,14 +20,14 @@ public class readingexcelops{
         XSSFWorkbook workbook = new  XSSFWorkbook(inputStream);
 
         //extracting the sheet from the workbook and referring the sheet with the object sheet
-        XSSFSheet sheet =workbook.getSheet("Sheet 1");    //can get sheet through this or
+        XSSFSheet sheet =workbook.getSheet("Sheet1");    //can get sheet through this or
 
          // XSSFSheet sheet = workbook.getSheetAt(0);
         // this is another method through which we can get the sheet and the index  will always start from 0
 
         //getting rows and cells USING FOR LOOP
-        int rows =sheet.getLastRowNum(); //this will return the number of rows
-        int cols =sheet.getRow(1).getLastCellNum(); //this will tell the number of columns or cells in one row
+//        int rows =sheet.getLastRowNum(); //this will return the number of rows
+//        int cols =sheet.getRow(1).getLastCellNum(); //this will tell the number of columns or cells in one row
 
 //        for (int r=0;r<rows;r++)  //for getting the row
 //        {
@@ -58,12 +58,13 @@ public class readingexcelops{
                 XSSFCell cell= (XSSFCell) celliterator.next();
                 switch(cell.getCellTypeEnum())       //get the type of value the cell holds using switch case
                 {case STRING:
-                    System.out.println(cell.getStringCellValue()); break;
+                    System.out.print(cell.getStringCellValue()); break;
                 case NUMERIC:
-                    System.out.println(cell.getNumericCellValue()); break;
+                    System.out.print(cell.getNumericCellValue()); break;
                 case BOOLEAN:
-                    System.out.println(cell.getBooleanCellValue()); break;
+                    System.out.print(cell.getBooleanCellValue()); break;
                 }
+                System.out.print("  |  ");
             }
             System.out.println();
         }
